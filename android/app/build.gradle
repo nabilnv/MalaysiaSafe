@@ -1,0 +1,52 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+}
+
+android {
+
+    compileSdk = 34
+    ndkVersion = flutter.ndkVersion
+
+
+    buildFeatures {
+        buildConfig true // Enable BuildConfig explicitly
+    }
+
+    namespace = "com.example.malaysiasafe"
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.malaysiasafe"
+        minSdk = 23
+        targetSdk = 34
+        minSdk = 23
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+        namespace = 'com.example.malaysiasafe'
+
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+
+
+}
+
+flutter {
+    source = "../.."
+}
+apply plugin: 'com.google.gms.google-services'  // At the bottom of the file
